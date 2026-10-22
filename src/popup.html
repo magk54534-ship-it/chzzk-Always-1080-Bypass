@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CHZZK Brave 1080p</title>
+    <link rel="stylesheet" href="ui.css" />
+  </head>
+  <body class="popup">
+    <header>
+      <div class="brand">
+        <span class="brand-mark">1080</span>
+        <div>
+          <h1>CHZZK Brave 1080p</h1>
+          <p class="subtitle">비공식 화질 자동 선택 도구</p>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <p class="status" id="page-state">치지직 라이브 탭을 확인하는 중…</p>
+
+      <div class="rows">
+        <label class="row">
+          <span class="row-text">
+            <span class="row-title">자동 최고 화질</span>
+            <span class="row-desc">라이브 진입·새로고침·방송 이동 후 1080p를 다시 적용합니다.</span>
+          </span>
+          <input type="checkbox" data-setting="autoQuality" />
+        </label>
+
+        <label class="row">
+          <span class="row-text">
+            <span class="row-title">Brave 감지 차단</span>
+            <span class="row-desc">치지직 도메인에서 navigator.brave만 숨깁니다. User-Agent는 건드리지 않습니다.</span>
+          </span>
+          <input type="checkbox" data-setting="braveBlock" />
+        </label>
+
+        <label class="row">
+          <span class="row-text">
+            <span class="row-title">CDN 1080p 폴백</span>
+            <span class="row-desc">480p HLS 요청을 1080p로 바꿔 실제 해상도를 검증합니다.</span>
+          </span>
+          <input type="checkbox" data-setting="cdnFallback" />
+        </label>
+
+        <label class="row">
+          <span class="row-text">
+            <span class="row-title">그리드 안내 자동 닫기</span>
+            <span class="row-desc">커넥터 설치 안내에서 '설치 없이 일반 화질 시청'만 누릅니다.</span>
+          </span>
+          <input type="checkbox" data-setting="suppressGridPopup" />
+        </label>
+
+        <label class="row">
+          <span class="row-text">
+            <span class="row-title">디버그 로그</span>
+            <span class="row-desc">동작 판단 과정을 콘솔에 남깁니다.</span>
+          </span>
+          <input type="checkbox" data-setting="debug" />
+        </label>
+      </div>
+
+      <div class="actions">
+        <button type="button" class="primary" id="open-options">모든 설정</button>
+        <span class="save-state" id="save-state"></span>
+      </div>
+    </main>
+
+    <script src="core.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>

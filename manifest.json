@@ -1,0 +1,55 @@
+{
+  "manifest_version": 3,
+  "name": "CHZZK Brave 1080p",
+  "short_name": "CHZZK 1080p",
+  "version": "1.0.0",
+  "description": "치지직 라이브에서 네이버 동영상 플러그인 없이 가능한 최고 화질(1080p 우선)을 자동 선택하는 비공식 확장 프로그램입니다.",
+  "minimum_chrome_version": "111",
+  "permissions": ["storage", "declarativeNetRequest"],
+  "host_permissions": [
+    "https://chzzk.naver.com/*",
+    "https://*.navercdn.com/*",
+    "https://*.pstatic.net/*",
+    "https://*.akamaized.net/*"
+  ],
+  "background": {
+    "service_worker": "src/background.js"
+  },
+  "action": {
+    "default_title": "CHZZK Brave 1080p",
+    "default_popup": "src/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "options_page": "src/options.html",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://chzzk.naver.com/*"],
+      "js": ["src/page-main.js"],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": ["https://chzzk.naver.com/*"],
+      "js": ["src/core.js", "src/content.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "quality_redirect",
+        "enabled": false,
+        "path": "rules/quality.json"
+      }
+    ]
+  }
+}

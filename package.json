@@ -1,0 +1,14 @@
+{
+  "name": "chzzk-brave-1080p",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Unofficial Manifest V3 extension that automatically selects the highest available quality on CHZZK live pages.",
+  "license": "MIT",
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "test:smoke": "node test/smoke-extension.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

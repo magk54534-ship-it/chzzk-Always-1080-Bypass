@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CHZZK Brave 1080p 설정</title>
+    <link rel="stylesheet" href="ui.css" />
+  </head>
+  <body class="options">
+    <div class="options-wrap">
+      <header>
+        <div class="brand">
+          <span class="brand-mark">1080</span>
+          <div>
+            <h1>CHZZK Brave 1080p</h1>
+            <p class="subtitle">치지직 라이브 화질 자동 선택 · 비공식 확장 프로그램</p>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <p class="status">
+          이 확장은 <strong>chzzk.naver.com/live/</strong> 에서만 화질을 조작합니다.
+          설정은 <strong>chrome.storage.sync</strong>에 저장되며 쿠키·토큰·시청 기록은 수집하지 않습니다.
+        </p>
+
+        <div class="section-title">재생</div>
+        <div class="options-grid">
+          <label class="row">
+            <span class="row-text">
+              <span class="row-title">자동 최고 화질</span>
+              <span class="row-desc">페이지 로드, 새로고침, SPA 방송 이동, 전체화면 전환 후에도 1080p를 우선 적용하고 해상도를 검증합니다.</span>
+            </span>
+            <input type="checkbox" data-setting="autoQuality" />
+          </label>
+
+          <label class="row">
+            <span class="row-text">
+              <span class="row-title">CDN 1080p 폴백</span>
+              <span class="row-desc">480p 항목을 <strong>1080p with FUCK GRID</strong>로 표시하고, 해당 HLS 요청을 1080p로 리다이렉트합니다. 실패하면 480p로 조용히 남습니다.</span>
+            </span>
+            <input type="checkbox" data-setting="cdnFallback" />
+          </label>
+
+          <label class="row">
+            <span class="row-text">
+              <span class="row-title">그리드 안내 자동 닫기</span>
+              <span class="row-desc">네이버 라이브 스트리밍 커넥터 설치 안내에서 '설치 없이 일반 화질 시청' 버튼만 클릭합니다. 결제·로그인·광고·보안 UI는 건드리지 않습니다.</span>
+            </span>
+            <input type="checkbox" data-setting="suppressGridPopup" />
+          </label>
+        </div>
+
+        <div class="section-title">Brave</div>
+        <div class="options-grid">
+          <label class="row">
+            <span class="row-text">
+              <span class="row-title">Brave 감지 차단</span>
+              <span class="row-desc">chzzk.naver.com에서만 <code>navigator.brave</code> 속성을 제거하거나 undefined로 가립니다. 전역 User-Agent/UA-CH 스푸핑은 하지 않습니다.</span>
+            </span>
+            <input type="checkbox" data-setting="braveBlock" />
+          </label>
+        </div>
+
+        <div class="section-title">진단</div>
+        <div class="options-grid">
+          <label class="row">
+            <span class="row-text">
+              <span class="row-title">디버그 로그</span>
+              <span class="row-desc">콘솔에 <code>[CHZZK Brave 1080p]</code> 접두사로 선택 과정을 기록합니다. 평소에는 꺼 두세요.</span>
+            </span>
+            <input type="checkbox" data-setting="debug" />
+          </label>
+        </div>
+
+        <div class="actions">
+          <button type="button" class="primary" id="save">저장</button>
+          <button type="button" class="ghost" id="reset">기본값 복원</button>
+          <span class="save-state" id="save-state"></span>
+        </div>
+
+        <p class="note">
+          비공식 우회 도구입니다. 네이버/치지직 이용약관 및 정책에 위배될 수 있고, 서비스 구조 변경 시
+          예고 없이 동작이 중단될 수 있습니다. 결제·로그인·광고·보안 관련 요소는 조작하지 않습니다.
+        </p>
+
+        <div class="meta">
+          <span>버전 <span id="version">-</span></span>
+          <a class="button" href="https://chzzk.naver.com/" target="_blank" rel="noreferrer">치지직 열기</a>
+          <span>MIT License</span>
+        </div>
+      </main>
+    </div>
+
+    <script src="core.js"></script>
+    <script src="options.js"></script>
+  </body>
+</html>
